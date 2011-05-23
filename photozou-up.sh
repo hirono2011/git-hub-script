@@ -22,4 +22,6 @@ TEMPFILE="$$.tmp"
 rm ./$TEMPFILE
 
 #widthとheightはブラウザで表示される画像サイズになるので適宜変更
+#curlとxselが必要です。Ubuntuの場合は次のようにインストールできます。
+#sudo apt-get install curl xsel
 
