@@ -1,0 +1,93 @@
+\documentclass[a4paper,10pt]{jarticle}
+\usepackage{atbegshi}
+%\AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}
+%修正を重ねてきましたが、Ubuntu 11.04ではこれでうまくいっています。
+
+\usepackage[left=40mm,right=25mm,top=35mm,bottom=30mm]{geometry}
+\setcounter{secnumdepth}{4}
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
+{1.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+{.5\Cvs \@plus.3\Cdp}%
+{\reset@font\normalsize\bfseries}}
+\makeatother
+
+%\newcommand{\記}{\begin{center} 記 \end{center}}
+\newenvironment{sg}{\Huge}{}
+%引数をとるマクロ
+\newcommand{\fl}[1]{\framebox[1cm]{\textgt{\small #1}}}
+%defの書式 文字を重ねる。
+\def\hh{廣\llap＼}
+%文字を小さくする。
+%\newcommand{\sss}[1]{{\tiny #1}}
+\usepackage{enumerate}
+\usepackage{url}
+%\usepackage{html}
+\usepackage{eclbkbox}
+\usepackage{eclclass}
+
+\newenvironment{qt}{
+\vspace{1zh}
+\begin{breakbox}
+\begin{quote}\footnotesize
+}{
+\end{quote}
+\end{breakbox}
+\vspace{2zh}}
+
+\title{刑事事件に対する再捜査の要望申立書}
+\author{廣野秀樹\thanks{石川県鳳珠郡能登町宇出津山分1-60}}
+\date{}
+\renewcommand{\postpartname}{}
+\renewcommand{\prepartname}{}
+% \\[2ex]% 2行分の空行を入れる。
+% 日本語しおりが字化けしないために
+%\AtBeginDvi{\special{pdf:tounicode EUC-UCS2}}
+\usepackage[dvipdfm,colorlinks=false,bookmarks=true,%
+ bookmarksnumbered=false,bookmarkstype=toc]{hyperref}
+ \ifnum 42146=\euc"A4A2 \AtBeginDvi{\special{pdf:tounicode EUC-UCS2}}\else
+ \AtBeginDvi{\special{pdf:tounicode 90ms-RKSJ-UCS2}}\fi
+
+
+% 2010 12 25 \nofiles
+
+
+\begin{document}
+
+\maketitle
+\begin{flushright}
+\today
+\end{flushright}
+
+\begin{flushleft}
+〒920-8553 石川県金沢市鞍月1丁目1番地\\
+\large{石川県警察本部長殿}\\
+\end{flushleft}
+
+\vspace{2.0cm}
+
+\begin{flushright}
+〒927-0431　石川県鳳珠郡能登町字宇出津山分10-3\\
+申立人　廣野秀樹\\
+\end{flushright}
+\vspace{1.0cm}
+
+申立人を被疑者として、平成4年4月、金沢西警察署が行った傷害・準強姦の被疑
+事件の取り調べ及び捜査には、左記の通り、極めて重大かつ深刻な欠陥及び不備
+があり、不当な人権侵害とともに、不正な侵害行為を行った関係者らに不当な利
+益を与えているので、事実に即した公正妥当な法的救済、法的解決の大前提とし
+て、真相の解明に向けた事件の再捜査を求めます。
+
+\vspace{1.0cm}
+
+\begin{center} 記 \end{center}
+
+\newpage
+
+\setcounter{tocdepth}{4}
+
+\tableofcontents
+
+\newpage
+
+
