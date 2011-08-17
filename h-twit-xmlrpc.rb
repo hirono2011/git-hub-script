@@ -1,6 +1,9 @@
 #!/usr/bin/ruby -Ku
-#一日前のツイートをまとめて取得し、WordPressのブログに投稿するスクリプトです。LinuxやFreeBSDというUNIX環境が前提です。引数はとりません。CRONで自動実行することを前提にしています。
+#一日前のツイートをまとめて取得し、WordPressのブログに投稿するスクリプトです。LinuxやFreeBSDというUNIX環境が前提ですCRONで自動実行することを考えて作りました。
+#引数をとると指定したTwitterユーザのツイートを取得できますが、この場合次の例のように、ユーザ名、指定日付、指定タイトルという3つの引数をつけるようにしてあります。
+# h-twit-s_hirono-xmlrpc.rb hirono_hideki 20110817 "テストです。たいとる"
 #実際に使用しているブログです。→ http://hirono2011.wordpress.com/
+#なお、APIでのデータの取得はサーバの状態などによってもうまくいかない場合があるかと思います。APIの使用回数にも制限がありますので気をつける必要があるかと思います。
 
 require 'rubygems'
 require 'twitter'
@@ -41,7 +44,7 @@ def get_twits_page(page, day)
 	s = 0
 
 	list=Array.new
-	uname=ARGV[0] || 's_hirono'
+	uname=ARGV[0] ||'s_hirono'
 	list=Twitter.user_timeline(:user=>uname, :include_rts=>1, :page=>page)
 
 
@@ -140,8 +143,9 @@ publish = 1 #0にすると下書き投稿になるみたいです。確認はし
 
 server = XMLRPC::Client.new('ユーザ名.wordpress.com', '/xmlrpc.php')
 
+title_name = ARGV[2] || "#{day}のツイート_再審請求_金沢地方裁判所御中 (s_hirono)"
 struct = {
-'title'=>"#{day}のツイート_再審請求_金沢地方裁判所御中 (s_hirono)",
+'title'=>title_name,
 'description'=>$html_data
 }
 
